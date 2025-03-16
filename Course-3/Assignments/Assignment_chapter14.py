@@ -21,3 +21,9 @@ for count in counts:
     accumulator += int(count.text)
 
 print ("Sum:" + str(accumulator))
+
+
+
+
+
+答案：2531

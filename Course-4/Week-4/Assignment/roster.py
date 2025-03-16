@@ -69,3 +69,10 @@ cur.executescript('''
     ON User.id = Member.user_id AND Member.course_id = Course.id
     ORDER BY X
 ''')
+
+
+
+
+
+
+XYZZY4161696D61736933363330

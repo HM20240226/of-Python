@@ -25,3 +25,8 @@ while count > 0:
     count -= 1
 
 print (names[-1])
+
+
+
+
+答案：Alanas

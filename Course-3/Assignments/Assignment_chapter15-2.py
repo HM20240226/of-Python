@@ -1,17 +1,32 @@
 import json
 import urllib.request, urllib.parse, urllib.error
-import xml.etree.ElementTree as ET
 
-place_name = input("Enter a place name: ")
-base_url = "http://python-data.dr-chuck.net/geojson?sensor=false&"
-address_param = urllib.parse.urlencode({'address': place_name})
-target = base_url + address_param
+location = input("Enter location: ")
+base_url = "http://py4e-data.dr-chuck.net/opengeo?"
+params = {'q': location}
+url = base_url + urllib.parse.urlencode(params)
 
-print ("Retrieving {0}".format(target))
-connection = urllib.request.urlopen(target)
-raw_data = connection.read()
-print ("Retrieved {0} characters".format(len(raw_data)))
-parsed_data = json.loads(raw_data)
+print("Retrieving", url)
+uh = urllib.request.urlopen(url)
+data = uh.read().decode()
+print("Retrieved", len(data), "characters")
 
-#print(parsed_data)
-print ("Place id", parsed_data["results"][0]["place_id"])
+try:
+    js = json.loads(data)
+    # 打印完整的JSON结构以便调试
+    print(json.dumps(js, indent=2))
+    # 检查JSON结构并获取plus_code
+    if "results" in js and len(js["results"]) > 0:
+        plus_code = js["results"][0].get("plus_code", "")
+        if plus_code:
+            print("Plus code", plus_code)
+        else:
+            print("Plus code not found")
+    else:
+        print("No results found")
+except Exception as e:
+    print("Error:", str(e))
+
+
+
+答案  "plus_code": "87JC9V2W+5P",

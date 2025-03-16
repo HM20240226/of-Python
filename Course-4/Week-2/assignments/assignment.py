@@ -33,3 +33,6 @@ for row in cur.execute(sqlstr):
     print(str(row[0]), row[1])
 
 cur.close()
+
+
+Our First Database  答案417

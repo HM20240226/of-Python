@@ -19,4 +19,5 @@ for span in spans:
     numbers.append(int(span.string))
 
 print (sum(numbers))
-# Answer is 2565
+# Answer2601
+

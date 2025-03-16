@@ -20,3 +20,8 @@ for item in info:
     print("Sum: ", total)
 
 print("Final sum: ", total)
+
+
+
+
+答案：2732
